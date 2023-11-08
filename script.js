@@ -44,10 +44,10 @@ document.querySelector('#btn-search').addEventListener ('click', function() {
     }
 
     document.querySelector('.Book').addEventListener ('click', function() {
-      
+      console.log(document.querySelector('.p1').value)
       const saveCart = {
         trajet: document.querySelector('.voyage').firstElementChild.textContent,
-        date: document.querySelector('.p1').textContent,
+        date: document.querySelector('.p1').value,
         price: document.querySelector('.p2').textContent,
     }
     fetch('http://localhost:3000/trips/save', {
