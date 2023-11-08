@@ -5,23 +5,23 @@ fetch('http://localhost:3000/trips/totalCart')
 
 for (let i = 0; i<data.length; i++ ){
 document.querySelector('#Achats').innerHTML += `
+<div class='supr'>
     <p>${data[i].trajet}</p>
     <p class="p1">${data[i].date}</p>
-    <p classs="p2">${data[i].price}</p>
+    <p class="p2">${data[i].price}</p>
     <button class="deleteCart" type="button">X</button>
+    </div>
 `
 }
-})
-
-const allDelete= document.querySelectorAll('.deleCart')
+const allDelete= document.querySelectorAll('.deleteCart')
 
     for (let i=0; i < allDelete.length; i++) {
     allDelete[i].addEventListener ('click', function() {
-    
+    console.log(this.previousElementSibling.previousElementSibling.textContent)
         const deleteCart = {
-        trajet: document.querySelector('#Achats').firstElementChild.textContent,
-        date: document.querySelector('.p1').value,
-        price: document.querySelector('.p2').textContent,
+        trajet:this.previousElementSibling.previousElementSibling.previousElementSibling.textContent,
+        date:this.previousElementSibling.previousElementSibling.textContent,
+        price:this.previousElementSibling.textContent,
     }
         fetch('http://localhost:3000/trips/deletetrip', {
             method: 'DELETE',
@@ -30,3 +30,4 @@ const allDelete= document.querySelectorAll('.deleCart')
         })
     })
 }
+})
