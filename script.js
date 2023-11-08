@@ -43,20 +43,25 @@ document.querySelector('#btn-search').addEventListener ('click', function() {
       `
     }
 
-    document.querySelector('.Book').addEventListener ('click', function() {
-      console.log(document.querySelector('.p1').value)
-      const saveCart = {
-        trajet: document.querySelector('.voyage').firstElementChild.textContent,
-        date: document.querySelector('.p1').value,
-        price: document.querySelector('.p2').textContent,
-    }
-    fetch('http://localhost:3000/trips/save', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(saveCart)
-    })
+    const allBooks= document.querySelectorAll('.Book')
 
+    for (let i=0; i < allBooks.length; i++) {
+      allBooks[i].addEventListener ('click', function() {
+      
+        const saveCart = {
+          trajet: document.querySelector('.voyage').firstElementChild.textContent,
+          date: document.querySelector('.p1').value,
+          price: document.querySelector('.p2').textContent,
+      }
+      fetch('http://localhost:3000/trips/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(saveCart)
       })
+  
+        })
+    }
+
   })
 })
 
