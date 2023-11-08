@@ -4,7 +4,7 @@ document.querySelector('#btn-search').addEventListener ('click', function() {
     const travelSearch = {
         departure: document.querySelector('#departure-btn').value,
         arrival: document.querySelector('#arrival-btn').value,
-        date : document.querySelector('#calendar-btn').value,
+        date: document.querySelector('#calendar-btn').value,
     }
 
     fetch('http://localhost:3000/trips/search', {
@@ -25,10 +25,10 @@ document.querySelector('#btn-search').addEventListener ('click', function() {
         document.querySelector('#search-right').innerHTML += `
 
         <div class='voyage'> 
-          <p> ${data[i].departure} > ${data[i].arrival}  </p>
-          <p>${data[i].date} </p>
-          <p>${data[i].price}</p>
-          <button id="deleteBook" type="button">Book</button>
+          <p>${data[i].departure} > ${data[i].arrival}  </p>
+          <p class="p1">${data[i].date} </p>
+          <p class="p2">${data[i].price} €</p>
+          <button class="Book" type="button"><a href="cart.html"> Book</a></button>
         </div>
         `
       }
@@ -42,7 +42,23 @@ document.querySelector('#btn-search').addEventListener ('click', function() {
       </div>
       `
     }
+
+    document.querySelector('.Book').addEventListener ('click', function() {
+      
+      const saveCart = {
+        trajet: document.querySelector('.voyage').firstElementChild.textContent,
+        date: document.querySelector('.p1').textContent,
+        price: document.querySelector('.p2').textContent,
+    }
+    fetch('http://localhost:3000/trips/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(saveCart)
+    })
+
+      })
   })
 })
+
 
 
