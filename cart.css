@@ -93,20 +93,21 @@ body{margin : 0;}
 
 
 #Achats {
-    margin-left: 20px;
-    margin-right : 20px;
+    /*margin-left: 20px;
+    margin-right : 20px;*/
+    width: 200px;
     background-color: rgb(219, 207, 187);
     border-radius: 5px;
     height: 60px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     
     
 }
 
 #Achats p{
-    float : left;
+    float: left;
 }
 
 
@@ -124,6 +125,9 @@ border-radius: 5px;
 color : white;
 margin-right : 10px;
 border : none;
+}
 
-
+.green a {
+    color: #4FA791;
+    text-decoration: none;
 }

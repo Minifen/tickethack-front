@@ -70,13 +70,16 @@ a {
     height: 200px;
     border-radius: 5px;
     margin:50px;
+    overflow:scroll
 }
 
-.search-left {
+#search-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+    overflow: scroll;
+
 }
 
 img { 
@@ -88,6 +91,10 @@ img {
     color: #4FA791;
 }
 
+.green a {
+    color: #4FA791;
+}
+
 p {
     font-size: 12px;
 }
@@ -95,4 +102,10 @@ p {
 hr{
     border: 1px solid #4FA791;
     margin: 0 20px;
+}
+
+#departure-btn {
+    width: 80%;
+    text-align: center;
+
 }
