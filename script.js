@@ -15,8 +15,22 @@ document.querySelector('#btn-search').addEventListener ('click', function() {
     })
     .then(response => response.json())
     .then(data => {
-    console.log(data);
+  
+    if(data) {
+
+     for (let i=0; i < data.length; i++) {
+      
+        document.querySelector('#search-right').innerHTML = `
+        <div class='voyage'> 
+          <p> ${data[0].departure} > ${data[0].arrival}  </p>
+          <p>${data[0].date} </p>
+          <p>${data[0].price}</p>
+          <button id="deleteCart" type="button">Book</button>
+        </div>
+        `
+    }
+     }
+    })
 })
 
-});
 
